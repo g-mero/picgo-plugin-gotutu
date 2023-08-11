@@ -1,6 +1,6 @@
 {
   "name": "picgo-plugin-gotutu",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "gotutu的picgo插件，附带了tinypng压缩",
   "main": "dist/index.js",
   "publishConfig": {
