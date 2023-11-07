@@ -23,13 +23,13 @@ export const getConfig = (ctx: PicGo): IPluginConfig[] => {
       type: 'input',
       default: userConfig.url ?? '',
       required: true,
-      alias: 'gotutu地址'
+      alias: 'gotutu地址',
     },
     {
       name: 'token',
       type: 'password',
       required: true,
-      alias: '你的apiToken'
+      alias: '你的apiToken',
     },
     {
       name: 'compressed',
@@ -37,7 +37,7 @@ export const getConfig = (ctx: PicGo): IPluginConfig[] => {
       choices: ['开启', '关闭'],
       required: true,
       default: '开启',
-      alias: '原图压缩(与tinypng只需要开启一个)'
+      alias: '原图压缩(与tinypng只需要开启一个)',
     },
     {
       name: 'tinypng',
@@ -45,8 +45,8 @@ export const getConfig = (ctx: PicGo): IPluginConfig[] => {
       choices: ['开启', '关闭'],
       required: true,
       default: '关闭',
-      alias: '开启tinypng压缩(需联网)'
-    }
+      alias: '开启tinypng压缩(需联网)',
+    },
   ]
 
   return config

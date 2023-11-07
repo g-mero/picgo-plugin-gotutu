@@ -1,4 +1,4 @@
-import { PicGo } from 'picgo'
+import type { PicGo } from 'picgo'
 import { getConfig, uploaderName } from './config'
 import { handle } from './handle'
 
@@ -7,11 +7,11 @@ export = (ctx: PicGo) => {
     ctx.helper.uploader.register(uploaderName, {
       handle,
       name: 'gotutu',
-      config: getConfig
+      config: getConfig,
     })
   }
   return {
     uploader: uploaderName,
-    register
+    register,
   }
 }
