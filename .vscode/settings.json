@@ -1,7 +1,7 @@
 {
   "typescript.tsdk": "./node_modules/typescript/lib",
   "editor.codeActionsOnSave": {
-    "source.fixAll": true
+    "source.fixAll": "explicit"
   },
   // 以下配置需要VSCode安装ESlint插件
   // 使用eslint规范

@@ -36,7 +36,7 @@ export const handle = async (ctx: PicGo): Promise<PicGo> => {
       }
 
       const formData = new FormData()
-      formData.append('image', buffer, fileName)
+      formData.append('file', buffer, fileName)
 
       const length = formData.getLengthSync()
 
@@ -46,25 +46,23 @@ export const handle = async (ctx: PicGo): Promise<PicGo> => {
         method: 'POST',
         url: apiUrl,
         headers: {
-          Authorization: userConfig.token,
+          'API-KEY': userConfig.token,
           'Content-Type': 'multipart/form-data',
           'Content-Length': length,
         },
         resolveWithFullResponse: true,
         data: formData,
       }
-      const res = await ctx.request<
-        { data: { thumb_url: string } },
-        IReqOptions
-      >(postOption)
-      if (res.status !== 200) {
+      const res = await ctx.request<string, IReqOptions>(postOption)
+      ctx.log.info(`[响应]: ${res.statusCode}`)
+      if (res.statusCode !== 200 || !res.data) {
         ctx.log.error(`[错误]: ${res.statusText}`)
         throw new Error(res.statusText)
       } else {
+        ctx.log.info(`[成功]: ${res.data}`)
         delete img.base64Image
         delete img.buffer
-        img.imgUrl = res.data.data.thumb_url
-        ctx.log.info(`${res.data.data}`)
+        img.imgUrl = `${userConfig.url}/pic/${res.data}?size=small`
       }
     } catch (err) {
       ctx.log.error(err)

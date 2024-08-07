@@ -6,7 +6,7 @@ export = (ctx: PicGo) => {
   const register = (): void => {
     ctx.helper.uploader.register(uploaderName, {
       handle,
-      name: 'gotutu',
+      name: 'alist-bed',
       config: getConfig,
     })
   }
